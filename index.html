@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamekar Diajar Basa Sunda - Kelas 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .prose-sunda {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .prose-sunda h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .prose-sunda h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose-sunda p, .prose-sunda ul, .prose-sunda ol {
+            margin-bottom: 1rem;
+        }
+        .prose-sunda ul, .prose-sunda ol {
+            padding-left: 1.5rem;
+        }
+        .prose-sunda li {
+            margin-bottom: 0.5rem;
+        }
+        .prose-sunda strong {
+            font-weight: 600;
+        }
+        .prose-sunda .contoh {
+            background-color: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+         .prose-sunda .rangkuman {
+            background-color: #fefcbf;
+            border-left: 4px solid #f6e05e;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option.selected {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+        .correct-answer {
+            background-color: #dcfce7 !important;
+            border-color: #22c55e !important;
+        }
+        .wrong-answer {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+        }
+        .explanation {
+            border-top: 2px dashed #cbd5e1;
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-white w-64 min-h-full p-6 shadow-lg fixed lg:static top-0 left-0 h-full z-20 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <h1 class="text-2xl font-bold text-blue-600 mb-8">Basa Sunda VII</h1>
+            <nav id="nav-links">
+                <a href="#home" class="flex items-center text-lg py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-home w-6 mr-3"></i> Bubuka
+                </a>
+                <h2 class="mt-6 mb-2 text-sm font-bold text-gray-500 uppercase tracking-wider">Pangajaran</h2>
+                <a href="#pangajaran1" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-comments w-6 mr-3"></i> Paguneman
+                </a>
+                <a href="#pangajaran2" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-gamepad w-6 mr-3"></i> Kaulinan Barudak
+                </a>
+                <a href="#pangajaran3" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-bullhorn w-6 mr-3"></i> Wawaran & Iklan
+                </a>
+                <a href="#pangajaran4" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-book-open w-6 mr-3"></i> Pangalaman Pribadi
+                </a>
+                <a href="#pangajaran5" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-dragon w-6 mr-3"></i> Dongéng
+                </a>
+                <a href="#pangajaran6" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-feather-alt w-6 mr-3"></i> Sajak
+                </a>
+                <a href="#pangajaran7" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-mosque w-6 mr-3"></i> Pupujian
+                </a>
+                <a href="#pangajaran8" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-pen-nib w-6 mr-3"></i> Aksara Sunda
+                </a>
+                <h2 class="mt-6 mb-2 text-sm font-bold text-gray-500 uppercase tracking-wider">Évaluasi</h2>
+                 <a href="#kuis" class="flex items-center py-3 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-question-circle w-6 mr-3"></i> Kuis Interaktif
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <header class="bg-white p-4 shadow-sm flex justify-between items-center sticky top-0 z-10">
+                <button id="menu-toggle" class="lg:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="relative w-full max-w-md hidden md:block">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input id="search-bar" type="text" placeholder="Téangan matéri..." class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div id="search-results" class="absolute top-16 left-1/2 -translate-x-1/2 w-full max-w-md bg-white shadow-lg rounded-lg z-30 hidden p-4"></div>
+            </header>
+
+            <div id="content-area" class="p-6 md:p-10">
+                <!-- Konten akan dimuat di sini oleh JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- DATA MATERI & KUIS ---
+        const materiData = {
+            home: {
+                title: "Wilujeng Sumping!",
+                content: `
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <h1 class="text-4xl font-bold text-blue-600 mb-4">Pamekar Diajar Basa Sunda</h1>
+                        <p class="text-xl text-gray-600 mb-6">Website pembelajaran interaktif pikeun murid SMP/MTs Kelas VII</p>
+                        <p class="max-w-3xl mx-auto text-lg leading-relaxed">
+                            Wilujeng Sumping di media pembelajaran Basa Sunda. Website ieu disusun dumasar kana buku paket 'Pamekar Diajar Basa Sunda' pikeun kelas 7. Di dieu, hidep tiasa diajar 8 pangajaran anu tos disayogikeun, lengkep sareng conto-conto sareng rangkumanana. Mangga pilih pangajaran anu dipikahoyong dina menu di gigir. Ulah hilap kanggo nguji pamahaman hidep dina Kuis Interaktif.
+                        </p>
+                        <div class="mt-8">
+                             <a href="#pangajaran1" class="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 inline-block">Mimitian Diajar <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran1: {
+                title: "Pangajaran 1: Paguneman",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Naon Ari Paguneman?</h2>
+                        <p>Paguneman téh nyaéta kagiatan ngobrol atawa cacarita dua arah, silih témpas, antara dua urang atawa leuwih. Paguneman geus jadi bagian tina kahirupan urang sapopoé. Unggal urang papanggih jeung batur, pasti osok ngobrol. Éta téh nu disebut paguneman lisan.</p>
+                        
+                        <h2>Penjelasan: Unsur-unsur dina Paguneman</h2>
+                        <p>Dina paguneman, aya sababaraha hal penting anu kudu diperhatikeun sangkan paguneman lumangsung kalawan merenah tur santun. Di antarana:</p>
+                        <ul>
+                            <li><strong>Lentong (Intonasi):</strong> Luhur handapna sora dina nyarita. Lentong anu merenah bakal némbongkeun rasa hormat ka batur.</li>
+                            <li><strong>Tatakrama Basa:</strong> Aturan sopan santun dina ngagunakeun basa. Ieu ngawengku pamakéan <strong>Basa Lemes</strong> (keur ka saluhureun atawa nu dipihormat) jeung <strong>Basa Loma</strong> (keur ka babaturan nu geus dalit atawa sahandapeun).</li>
+                            <li><strong>Rengkuh jeung Pasemon:</strong> Sikep awak jeung paroman beungeut. Ieu kudu diluyukeun jeung situasi sarta saha nu diajak nyarita.</li>
+                            <li><strong>Kalimah Langsung jeung Teu Langsung:</strong> Paguneman sering ditulis ngagunakeun kalimah langsung, anu ditandaan ku kekenteng ("..."). Contona: "Mah, aya nu badé ditaroskeun," ceuk Atia.</li>
+                        </ul>
+
+                        <h2>Conto: Paguneman Indung jeung Anak</h2>
+                        <div class="contoh">
+                            <p><strong>Atia:</strong> "Mah, naon margina ari naék mobil sok istri heula, ari lungsur sok pameget heula?"</p>
+                            <p><strong>Indungna:</strong> "Tah, éta téh salasahiji tatakrama dina naék jeung turun tina mobil."</p>
+                            <p><strong>Atia:</strong> "Naon ari tatakrama téh, Mah?"</p>
+                            <p><strong>Lanceukna:</strong> "Tétéh terang! Tatakrama téh aturan sopan santun téa, nya?"</p>
+                            <p><strong>Indungna:</strong> "Leres. Tatakrama téh jembar pisan. Lain ngan dina naék-turun mobil baé, tapi ogé dina nyarita, nyémah, maké papakéan, jeung sajabana."</p>
+                        </div>
+                        
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                            <p>Paguneman nyaéta obrolan silih témpas. Hal-hal penting dina paguneman nyaéta lentong, tatakrama basa (lemes jeung loma), rengkuh, pasemon, sarta bisa ditulis ngagunakeun kalimah langsung. Tujuan utama tatakrama dina paguneman nyaéta pikeun silihajénan.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran2: {
+                title: "Pangajaran 2: Kaulinan Barudak",
+                content: `
+                     <div class="prose-sunda">
+                        <h2>Pengantar: Rupa-rupa Kaulinan</h2>
+                        <p>Barudak Sunda beunghar ku rupa-rupa kaulinan, boh keur awéwé boh keur lalaki. Aya kaulinan nu maké alat, aya ogé nu ukur maké kakawihan. Kaulinan ieu ngandung ajén olahraga, seni, jeung hiburan.</p>
+                        
+                        <h2>Penjelasan & Contoh: Kaulinan Populer</h2>
+                        <p>Ieu sababaraha conto kaulinan barudak anu populer:</p>
+                        
+                        <h3>1. Langlayangan</h3>
+                        <p>Kaulinan medar langlayangan populer pisan, utamana dina usum halodo. Aya nu dipaénkeun biasa, aya ogé nu diadukeun maké benang gelasan. Aya rupa-rupa istilah dina kaulinan langlayangan, contona:</p>
+                        <ul>
+                            <li><strong>Kapakan:</strong> Langlayangan leupas/pegat sorangan.</li>
+                            <li><strong>Nyasar:</strong> Ngaduan langlayangan batur lain tina gelasanana.</li>
+                            <li><strong>Ditataran:</strong> Diulur, dibéréan sina luhur.</li>
+                            <li><strong>Wangkong:</strong> Gambar dina langlayangan.</li>
+                        </ul>
+
+                        <h3>2. Oray-orayan (Kaulinan bari Kakawihan)</h3>
+                        <p>Ieu kaulinan dipaénkeun ku lobaan bari ngarawih. Barudak ngabaris bari silihcekel taktak, ngawangun jiga oray. Anu panghareupna jadi hulu, nu pangtukangna jadi buntut. Hulu oray bakal ngudag buntutna.</p>
+                        <div class="contoh">
+                            <p><strong>Rumpaka Kakawihan Oray-orayan:</strong></p>
+                            <p class="italic">Oray-orayan luar-léor mapay sawah,<br>
+                            Tong ka sawah paréna keur sedeng beukah.<br>
+                            Oray-orayan luar-léor mapay leuwi,<br>
+                            Tong ka leuwi, di leuwi loba nu mandi...<br>
+                            ... oray naon? Oray bungka.<br>
+                            bungka naon? Bungka laut.<br>
+                            laut naon? Laut dipa.<br>
+                            dipa naon? Dipandeuri...ri...ri...ri...</p>
+                        </div>
+                        
+                        <h3>3. Péclé</h3>
+                        <p>Kaulinan husus barudak awéwé nu maké alat kenténg sabeulah. Tempatna ngagambar pétak-pétak dina taneuh. Pamaénna kudu éngklé-éngkléan dina kalang bari mawa kenténg.</p>
+
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                            <p>Kaulinan barudak téh loba rupana jeung mibanda ajén-ajén anu positip. Contona aya langlayangan, oray-orayan, péclé, ngadu kaléci, congkak, jeung sajabana. Sababaraha kaulinan ogé dibarengan ku kakawihan anu ngajadikeun kaulinan leuwih ramé.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran3: {
+                title: "Pangajaran 3: Wawaran jeung Iklan",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Nepikeun Informasi</h2>
+                        <p>Wawaran jeung iklan duanana boga fungsi pikeun nepikeun informasi ka balaréa. Sanajan siga sarua, tapi aya bédana. Wawaran umumna mangrupa paréntah, ajakan, atawa panyarék, sedengkeun iklan leuwih ngajak sangkan masarakat kapangaruhan.</p>
+                        
+                        <h2>Penjelasan: Wawaran vs Iklan Layanan Masarakat</h2>
+                        <h3>Wawaran</h3>
+                        <p>Wawaran eusina singget, jelas, tur langsung kana maksud. Biasana dipasang di tempat nu aya patalina jeung eusi wawaran.</p>
+                        <div class="contoh">
+                            <p><strong>Conto Wawaran:</strong></p>
+                            <ul>
+                                <li>Piceun runtah kana tempatna!</li>
+                                <li>Perpustakaan lain tempat ngobrol!</li>
+                                <li>Parkir di tempat nu geus disadiakeun.</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Iklan Layanan Masarakat</h3>
+                        <p>Iklan ieu henteu néangan kauntungan (non-komersil). Tujuanana pikeun ngajak masarakat sangkan milu ilubiung, sadar, atawa ngarojong hiji program. Iklan bisa ditepikeun ngaliwatan sababaraha media:</p>
+                        <ul>
+                            <li><strong>Media Tinulis (Visual):</strong> Dipajang di tempat umum (misalna baliho). Kudu maké basa nu singget, narik ati, sarta didukung ku gambar jeung warna nu matak resep nénjona.</li>
+                            <li><strong>Media Radio (Audio):</strong> Ngandelkeun kakuatan sora, musik, jeung dialog. Biasana dijieun dina wangun carita pondok nu pikaresepeun.</li>
+                            <li><strong>Media TV (Audio Visual):</strong> Paling kompléks, ngagabungkeun gambar gerak (video), sora, musik, jeung carita. Pangaruhna paling kuat.</li>
+                        </ul>
+
+                        <div class="contoh">
+                           <p><strong>Conto Iklan Layanan Masarakat (Tinulis):</strong></p>
+                           <p class="font-bold text-lg">MAYAR PAJAK ULAH TELAT!</p>
+                           <p class="italic">Kuatna nagara gumantung kana pajak ti wargana.</p>
+                        </div>
+
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                           <p>Wawaran nyaéta béja paréntah/panyarék nu singget. Iklan layanan masarakat nyaéta ajakan non-komersil pikeun kapentingan balaréa. Media iklan aya tilu rupa: tinulis (visual), radio (audio), jeung TV (audio visual), masing-masing boga ciri jeung kakuatanana séwang-séwangan.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran4: {
+                title: "Pangajaran 4: Pangalaman Pribadi",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Nulis Pangalaman</h2>
+                        <p>Sadayana jalma pasti boga pangalaman. Pangalaman anu kungsi kasorang téh hadé pisan mun dituliskeun. Lian ti jadi dokumén pribadi, bisa ogé jadi mangpaat keur batur, boh picontoeun (nu hadé) boh pieunteungeun (nu goréng).</p>
+
+                        <h2>Penjelasan: Wangun Tulisan Pangalaman</h2>
+                        <p>Pangalaman bisa ditulis dina sababaraha wangun, di antarana:</p>
+                        <ul>
+                            <li><strong>Carita Pangalaman:</strong> Tulisan nu lengkep, ngaguluyur, nyaritakeun hiji kajadian ti awal nepi ka ahir. Biasana ditulis sanggeus kajadianana direncanakeun heula (misalna carita karyawisata).</li>
+                            <li><strong>Catetan Poéan (Diary):</strong> Tulisan nu leuwih singget, nyatetkeun kajadian-kajadian penting atawa nu ngirut haté dina poé éta. Henteu kudu unggal poé nulis.</li>
+                        </ul>
+                        <p>Bédana, carita pangalaman leuwih lengkep jeung diropéa, sedengkeun catetan poéan leuwih spontan jeung singget.</p>
+                        
+                        <h3>Kajembaran Basa: Babasan jeung Kapamalian</h3>
+                        <p>Dina nyaritakeun pangalaman, sering digunakeun ungkara-ungkara has Sunda, saperti:</p>
+                        <ul>
+                            <li><strong>Babasan:</strong> Gundukan kecap nu hartina lain sabenerna (harti injeuman) jeung geus matok.</li>
+                            <li><strong>Kapamalian:</strong> Omongan kolot baheula nu eusina panyarék, ngandung atikan sangkan urang leuwih ati-ati.</li>
+                        </ul>
+
+                        <h2>Conto</h2>
+                        <div class="contoh">
+                            <p><strong>Conto Babasan:</strong></p>
+                            <ul>
+                                <li><strong>Panjang leungeun:</strong> Sok pulang-paling, sok nyokot barang batur.</li>
+                                <li><strong>Gedé hulu:</strong> Adigung, sombong.</li>
+                                <li><strong>Hayam panyambungan:</strong> Jalma nu talamba-tolombo di tempat anyar da euweuh nu wawuh.</li>
+                            </ul>
+                            <p><strong>Conto Kapamalian:</strong></p>
+                            <ul>
+                                <li>Ulah diuk dina lawang panto, pamali, bisi nongtot jodo.</li>
+                                <li>Ulah sasapu ti peuting, pamali, matak nyapukeun rejeki.</li>
+                            </ul>
+                        </div>
+
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                            <p>Nulis pangalaman pribadi téh penting. Bisa dina wangun carita nu lengkep atawa catetan poéan (diary) nu singget. Dina tulisan, urang bisa maké babasan (harti injeuman) jeung nyaritakeun kapamalian (panyarék kolot baheula) pikeun ngabeungharan carita.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran5: {
+                title: "Pangajaran 5: Dongéng",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Naon Ari Dongéng?</h2>
+                        <p>Dongéng nyaéta carita rékaan (fiksi) anu sumebar sacara lisan ti generasi ka generasi. Ciri utama dongéng nyaéta jalan caritana loba nu teu kaharti ku akal atawa pamohalan. Sanajan kitu, dongéng leubeut ku ajén-ajén atikan, saperti pieunteungeun (nu goréng) jeung picontoeun (nu hadé).</p>
+
+                        <h2>Penjelasan: Papasingan Dongéng</h2>
+                        <p>Dumasar kana eusi jeung palakuna, dongéng bisa dipasing-pasing jadi lima rupa:</p>
+                        <ol>
+                            <li><strong>Fabél:</strong> Dongéng nu palakuna sasatoan, tapi paripolahna dicaritakeun jiga jelema. Contona: Dongéng Sakadang Peucang jeung Sakadang Kuya.</li>
+                            <li><strong>Parabél:</strong> Dongéng nu nyaritakeun kahirupan jalma biasa, tapi caritana ngandung unsur pamohalan jeung atikan moral. Contona: Dongéng Si Kabayan.</li>
+                            <li><strong>Légénda (Sasakala):</strong> Dongéng nu nyaritakeun asal-usul hiji tempat, barang, sasatoan, atawa tutuwuhan. Contona: Sasakala Gunung Tangkuban Parahu.</li>
+                            <li><strong>Mite (Mitos):</strong> Dongéng anu patali jeung kapercayaan masarakat kana lelembut atawa mahluk gaib. Contona: Dongéng Nyi Roro Kidul.</li>
+                            <li><strong>Sagé:</strong> Dongéng anu eusina ngandung unsur sajarah, nyaritakeun kapahlawanan hiji jalma. Contona: Dongéng Prabu Siliwangi.</li>
+                        </ol>
+
+                        <h2>Conto: Dongéng "Ajag Nangtang Jelema"</h2>
+                        <div class="contoh">
+                            <p>Dina dongéng ieu, dicaritakeun hiji ajag anu sombong jeung asa panggagahna. Manéhna ngarasa bisa ngéléhkeun saha waé, iwal ti "jelema". Sakadang Peucang anu pinter tuluy nipu ajag sangkan ngalawan paninggaran (pemburu). Ahirna, ajag paéh ditémbak ku paninggaran.</p>
+                            <p><strong>Amanat dongéng:</strong> Ulah sombong jeung adigung, sabab saluhureun langit masih aya langit. Akal leuwih ampuh batan kakuatan fisik.</p>
+                        </div>
+                        
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                            <p>Dongéng nyaéta carita rékaan nu pamohalan tapi ngandung atikan. Dongéng dibagi jadi lima jenis: fabél (sasatoan), parabél (jalma biasa), légénda (asal-usul), mite (lelembut), jeung sagé (sajarah). Unggal dongéng miboga amanat atawa pesan moral pikeun nu macana.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran6: {
+                title: "Pangajaran 6: Sajak",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Puisi Modéren</h2>
+                        <p>Sajak nyaéta salah sahiji karya sastra wangun ugeran (puisi) anu henteu kaiket ku aturan nu matok saperti jumlah padalisan (baris) dina sapada (bait) atawa guru lagu jeung guru wilangan. Kusabab kitu, sajak sok disebut ogé puisi bébas.</p>
+                        
+                        <h2>Penjelasan: Unsur-unsur Sajak</h2>
+                        <p>Dina sajak, aya sababaraha unsur penting anu ngawangun éta karya, di antarana:</p>
+                        <ul>
+                            <li><strong>Téma:</strong> Poko pikiran atawa gagasan utama nu hayang ditepikeun ku panyajak.</li>
+                            <li><strong>Rasa:</strong> Sikep panyajak kana poko pasualan. Bisa sedih, gumbira, kritis, jsb.</li>
+                            <li><strong>Amanat:</strong> Pesen atawa talatah nu hayang ditepikeun ka nu maca.</li>
+                            <li><strong>Gaya Basa (Figurative Language):</strong> Pamilihan kecap (diksi) nu has, sering ngandung harti injeuman (konotatif) pikeun ngahontal kaéndahan. Contona metafora, simile, jsb.</li>
+                            <li><strong>Wirahma (Irama):</strong> Galindengna sora, wirahma nu diwangun ku padeukeutna sora-sora dina kecap.</li>
+                            <li><strong>Imaji:</strong> Gambaran anu karasa, kadéngé, atawa katénjo ku nu maca, sanajan ukur dina pikiran.</li>
+                        </ul>
+                        <p>Maca sajak di hareupeun balaréa disebut <strong>déklamasi</strong>, anu merlukeun pamahaman eusi, lentong, jeung éksprési anu pas.</p>
+                        
+                        <h2>Conto: Sajak "Bandung" (karya Wahyu Wibisana)</h2>
+                        <div class="contoh">
+                            <p class="italic">Kacipta kénéh sagala-galana<br>
+                            basa urang ngobrol ku basa Sunda<br>
+                            di kota anjeun<br>
+                            Bandung lucu</p>
+                            <p class="italic">Hayang kuring nanya heula<br>
+                            saméméh pamit rék paanggang<br>
+                            ieu Bandung nu heurin ku tangtung<br>
+                            itu Lémbang kota hérang jeung béntang<br>
+                            mindeng méré ilham kana kalam?</p>
+                        </div>
+                        <p>Dina conto di luhur, ungkara "heurin ku tangtung" lain harti sabenerna, tapi mangrupa gaya basa nu hartina padet pendudukna.</p>
+
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                           <p>Sajak nyaéta puisi bébas anu teu kaiket ku aturan. Unsur-unsurna ngawengku téma, rasa, amanat, gaya basa, wirahma, jeung imaji. Basa nu dipaké dina sajak umumna ngandung harti injeuman (konotatif) pikeun ngahasilkeun éfék kaéndahan. Maca sajak disebut déklamasi.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran7: {
+                title: "Pangajaran 7: Pupujian",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Nadoman di Masjid</h2>
+                        <p>Pupujian nyaéta salah sahiji karya sastra Sunda wangun puisi (ugeran) anu eusina muji kaagungan Allah SWT, solawat ka Kangjeng Nabi Muhammad SAW, do'a, pépéling, atawa ajaran agama Islam. Biasana, pupujian dinadomkeun (ditembangkeun) di masjid atawa madrasah saméméh solat atawa saméméh ngaji.</p>
+                        
+                        <h2>Penjelasan: Wangun jeung Eusi Pupujian</h2>
+                        <h3>Wangun Pupujian</h3>
+                        <p>Pupujian boga wangun anu geus matok (kaiket ku aturan), béda jeung sajak anu bébas. Ciri-cirina:</p>
+                        <ul>
+                            <li>Unggal pada (bait) diwangun ku opat padalisan (baris).</li>
+                            <li>Unggal padalisan umumna diwangun ku dalapan engang (suku kata).</li>
+                            <li>Purwakanti (rima) dina tungtung padalisan biasana sarua (a-a-a-a).</li>
+                        </ul>
+                        
+                        <h3>Eusi Pupujian</h3>
+                        <p>Dumasar kana eusina, pupujian bisa dipasing-pasing jadi:</p>
+                        <ol>
+                            <li>Puji jeung du'a ka Gusti Allah.</li>
+                            <li>Solawat ka Kangjeng Nabi.</li>
+                            <li>Pépéling (ngingetan) pikeun jalma réa.</li>
+                            <li>Ajaran agama (fikih, ahlak, jsb).</li>
+                        </ol>
+
+                        <h2>Conto: Pupujian "Anak Adam"</h2>
+                        <div class="contoh">
+                            <p class="italic">Anak Adam anjeun di dunya ngumbara, (8-a)<br>
+                            umur anjeun di dunya téh moal lila. (8-a)<br>
+                            Anak Adam umur anjeun téh ngurangan, (8-a)<br>
+                            saban poé saban peuting dicontangan. (8-a)</p>
+                            <p><strong>Eusi:</strong> Pépéling yén hirup di dunya téh samentara jeung urang kabéh bakal maot.</p>
+                        </div>
+                        
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                           <p>Pupujian nyaéta puisi kaagamaan Islam nu wanguna kaiket (4 baris sabait, 8 engang sabaris, sarta purwakanti a-a-a-a). Eusina ngawengku puji ka Allah, solawat, pépéling, jeung ajaran agama. Biasana dinadomkeun di masjid atawa madrasah.</p>
+                        </div>
+                    </div>
+                `
+            },
+            pangajaran8: {
+                title: "Pangajaran 8: Aksara Sunda",
+                content: `
+                    <div class="prose-sunda">
+                        <h2>Pengantar: Aksara Kaganga</h2>
+                        <p>Aksara Sunda, anu sok disebut ogé Aksara Kaganga, nyaéta aksara tradisional anu digunakeun ku urang Sunda. Kiwari, aksara Sunda geus distandarisasi jeung loba digunakeun dina rupa-rupa kaperluan, saperti plang ngaran jalan, kantor, jeung sajabana.</p>
+
+                        <h2>Penjelasan: Komponén Aksara Sunda</h2>
+                        <p>Aksara Sunda diwangun ku sababaraha komponén:</p>
+                        
+                        <h3>1. Aksara Ngalagena (Konsonan + 'a')</h3>
+                        <p>Ieu téh aksara dasar. Jumlahna aya 23, ditambah 7 aksara serepan. Unggal aksara ngalagena geus ngandung sora /a/.</p>
+                        <div class="contoh overflow-x-auto"><img src="https://placehold.co/800x200/e2e8f0/2d3748?text=Tabel+Aksara+Ngalagena+(ka,+ga,+nga,+...)" alt="Tabel Aksara Ngalagena"></div>
+                        
+                        <h3>2. Aksara Swara (Vokal)</h3>
+                        <p>Ieu téh aksara pikeun sora vokal mandiri (a, i, u, é, o, e, eu). Jumlahna aya 7.</p>
+                        <div class="contoh overflow-x-auto"><img src="https://placehold.co/800x150/e2e8f0/2d3748?text=Tabel+Aksara+Swara+(a,+i,+u,+...)" alt="Tabel Aksara Swara"></div>
+
+                        <h3>3. Rarangkén (Tanda Vokalisasi)</h3>
+                        <p>Rarangkén gunana pikeun ngarobah sora /a/ dina aksara ngalagena, nambahan sora konsonan di tengah atawa di tungtung, sarta maéhan sora vokal.</p>
+                        <ul>
+                            <li><strong>Di luhur:</strong> Panghulu (i), Pamepet (e), Paneuleung (eu), Panglayar (+r), Panyecek (+ng).</li>
+                            <li><strong>Di handap:</strong> Panyuku (u), Panyakra (+ra), Panyiku (+la).</li>
+                            <li><strong>Di gigir:</strong> Panéléng (é), Panolong (o), Pamingkal (+ya), Pangwisad (+h), Pamaéh (maéhan vokal).</li>
+                        </ul>
+
+                        <h3>4. Angka</h3>
+                        <p>Aksara Sunda boga wilangan angka ti 0 nepi ka 9. Panulisannana kudu dihapit ku dua garis ajeg (|...|).</p>
+                        <div class="contoh overflow-x-auto"><img src="https://placehold.co/800x100/e2e8f0/2d3748?text=Tabel+Angka+(|1|,+|2|,+|3|,+...)" alt="Tabel Angka"></div>
+
+                        <h2>Rangkuman</h2>
+                        <div class="rangkuman">
+                           <p>Aksara Sunda diwangun ku Aksara Ngalagena (dasar), Aksara Swara (vokal), Rarangkén (parobah sora), jeung Angka. Ngawasa kabéh komponén ieu penting pisan sangkan bisa maca jeung nulis dina aksara Sunda kalawan bener.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        const quizData = [
+            // Pangajaran 1
+            {
+                type: 'mc',
+                question: 'Obrolan silih témpas antara dua urang atawa leuwih disebut...',
+                options: ['Biantara', 'Paguneman', 'Warta', 'Sajak'],
+                answer: 'Paguneman',
+                explanation: 'Paguneman nyaéta istilah dina basa Sunda pikeun kagiatan ngobrol atawa dialog silih témpas.'
+            },
+            {
+                type: 'mc',
+                question: 'Aturan sopan santun dina ngagunakeun basa disebut...',
+                options: ['Lentong', 'Rengkuh', 'Tatakrama Basa', 'Pasemon'],
+                answer: 'Tatakrama Basa',
+                explanation: 'Tatakrama Basa ngatur pamakéan basa lemes jeung basa loma sangkan luyu jeung saha nu diajak nyarita.'
+            },
+            // Pangajaran 2
+            {
+                type: 'mc',
+                question: 'Kaulinan barudak anu ngagunakeun benang gelasan nyaéta...',
+                options: ['Péclé', 'Congkak', 'Langlayangan', 'Oray-orayan'],
+                answer: 'Langlayangan',
+                explanation: 'Langlayangan sering diadukeun maké benang seukeut nu disebut gelasan.'
+            },
+            {
+                type: 'mc',
+                question: 'Kakawihan "Luar-léor mapay sawah" aya dina kaulinan...',
+                options: ['Ambil-ambilan', 'Eundeuk-eundeukan', 'Gatrik', 'Oray-orayan'],
+                answer: 'Oray-orayan',
+                explanation: 'Éta téh mangrupa rumpaka kawih anu dikawihkeun babarengan dina kaulinan Oray-orayan.'
+            },
+            // Pangajaran 3
+            {
+                type: 'mc',
+                question: 'Iklan anu tujuanana henteu néangan kauntungan matéri disebut...',
+                options: ['Iklan Komérsial', 'Iklan Wawaran', 'Iklan Layanan Masarakat', 'Iklan Radio'],
+                answer: 'Iklan Layanan Masarakat',
+                explanation: 'Iklan Layanan Masarakat dijieun pikeun kapentingan umum, contona ajakan mayar pajak atawa ngajaga kabersihan.'
+            },
+            {
+                type: 'mc',
+                question: 'Media iklan anu ngandelkeun kakuatan sora, dialog, jeung musik nyaéta...',
+                options: ['TV', 'Baliho', 'Koran', 'Radio'],
+                answer: 'Radio',
+                explanation: 'Radio mangrupa media audio, jadi kakuatan utamana aya dina sora.'
+            },
+             // Pangajaran 4
+            {
+                type: 'mc',
+                question: 'Gundukan kecap anu hartina lain sabenerna (harti injeuman) disebut...',
+                options: ['Paribasa', 'Babasan', 'Rakitan Lantip', 'Kecap Rajékan'],
+                answer: 'Babasan',
+                explanation: 'Babasan nyaéta ungkara anu geus matok, contona "panjang leungeun" nu hartina sok maok, lain leungeunna nu panjang.'
+            },
+            {
+                type: 'mc',
+                question: '"Ulah diuk dina lawang panto" mangrupa conto tina...',
+                options: ['Cacandran', 'Uga', 'Kapamalian', 'Wawangsalan'],
+                answer: 'Kapamalian',
+                explanation: 'Kapamalian nyaéta panyarék ti kolot baheula anu ngandung atikan moral atawa kasopanan.'
+            },
+            // Pangajaran 5
+            {
+                type: 'mc',
+                question: 'Dongéng anu palakuna sasatoan disebut...',
+                options: ['Mite', 'Sagé', 'Légénda', 'Fabél'],
+                answer: 'Fabél',
+                explanation: 'Fabél nyaritakeun kahirupan sasatoan anu paripolahna siga jelema, contona dongéng Sakadang Peucang.'
+            },
+            {
+                type: 'mc',
+                question: 'Dongéng ngeunaan asal-usul hiji tempat, saperti Tangkuban Parahu, disebut...',
+                options: ['Parabél', 'Légénda', 'Mite', 'Sagé'],
+                answer: 'Légénda',
+                explanation: 'Légénda atawa sasakala nyaéta dongéng anu eusina nyaritakeun asal-muasal (asal-usul) hiji hal.'
+            },
+            // Pangajaran 6
+            {
+                type: 'mc',
+                question: 'Karya sastra wangun puisi anu teu kaiket ku aturan guru lagu jeung guru wilangan disebut...',
+                options: ['Pupujian', 'Guguritan', 'Sajak', 'Mantra'],
+                answer: 'Sajak',
+                explanation: 'Sajak mangrupa wangun puisi bébas, béda jeung pupujian atawa guguritan anu kaiket ku aturan nu matok.'
+            },
+            {
+                type: 'mc',
+                question: 'Maca sajak di hareupeun balaréa kalawan maké éksprési anu merenah disebut...',
+                options: ['Biantara', 'Ngadongéng', 'Nadomkeun', 'Déklamasi'],
+                answer: 'Déklamasi',
+                explanation: 'Déklamasi nyaéta seni maca sajak anu ngutamakeun pamahaman eusi, lentong, jeung gerak awak.'
+            },
+            // Pangajaran 7
+            {
+                type: 'mc',
+                question: 'Pupujian biasana dinadomkeun di...',
+                options: ['Sakola', 'Pasar', 'Masjid atawa Madrasah', 'Imah'],
+                answer: 'Masjid atawa Madrasah',
+                explanation: 'Pupujian ilaharna dinadomkeun bari nungguan waktu solat atawa saméméh diajar ngaji.'
+            },
+            {
+                type: 'mc',
+                question: 'Unggal padalisan (baris) dina pupujian umumna diwangun ku ... engang.',
+                options: ['6', '7', '8', '10'],
+                answer: '8',
+                explanation: 'Salah sahiji ciri wangun pupujian anu matok nyaéta diwangun ku 8 engang (suku kata) dina unggal padalisanana.'
+            },
+             // Pangajaran 8
+            {
+                type: 'mc',
+                question: 'Aksara dasar dina Aksara Sunda anu geus ngandung sora /a/ disebut...',
+                options: ['Aksara Swara', 'Rarangkén', 'Aksara Ngalagena', 'Angka'],
+                answer: 'Aksara Ngalagena',
+                explanation: 'Aksara Ngalagena (ka, ga, nga, jst.) mangrupa aksara konsonan dasar anu sacara bawaan boga sora vokal /a/.'
+            },
+            {
+                type: 'mc',
+                question: 'Rarangkén anu gunana pikeun ngarobah sora /a/ jadi /i/ nyaéta...',
+                options: ['Panyuku', 'Panghulu', 'Panéléng', 'Pamepet'],
+                answer: 'Panghulu',
+                explanation: 'Panghulu (   ᮤ ) disimpen di luhureun aksara ngalagena pikeun ngarobah sorana jadi /i/.'
+            },
+            {
+                type: 'mc',
+                question: 'Tokoh dongéng anu kasohor pinter, loba akal, tapi sakapeung kedul nyaéta...',
+                options: ['Sakadang Peucang', 'Si Kabayan', 'Sunan Gunung Jati', 'Nyi Roro Kidul'],
+                answer: 'Si Kabayan',
+                explanation: 'Si Kabayan nyaéta tokoh dongéng parabél anu populér di tatar Sunda, dipikawanoh ku kapinteranana anu mahiwal.'
+            },
+             {
+                type: 'mc',
+                question: 'Harti tina babasan "gedé hulu" nyaéta...',
+                options: ['Sirahna gedé', 'Sombong/adigung', 'Pinter', 'Beunghar'],
+                answer: 'Sombong/adigung',
+                explanation: '"Gedé hulu" mangrupa harti injeuman anu hartina jalma anu boga sipat sombong atawa takabur.'
+            },
+            {
+                type: 'mc',
+                question: 'Dina kaulinan langlayangan, istilah pikeun gambar dina langlayangan nyaéta...',
+                options: ['Gelasan', 'Tali timba', 'Kapakan', 'Wangkong'],
+                answer: 'Wangkong',
+                explanation: 'Wangkong nyaéta sebutan husus pikeun gambar anu ngahias langlayangan.'
+            },
+            {
+                type: 'mc',
+                question: 'Nuliskeun angka dina Aksara Sunda kudu...',
+                options: ['Maké pamaéh', 'Dihapit ku dua garis', 'Ditulis ti katuhu', 'Digedéan aksarana'],
+                answer: 'Dihapit ku dua garis',
+                explanation: 'Aturan panulisan angka dina Aksara Sunda nyaéta kudu dihapit ku garis ajeg di kénca jeung katuhuna, contona |᮲᮵|.'
+            },
+            // -- Soal Esai --
+            {
+                type: 'essay',
+                question: 'Jéntrékeun (jelaskan) bédana antara carita pangalaman jeung catetan poéan (diary)!',
+                answer: 'Carita pangalaman ditulis leuwih lengkep, ngaguluyur, jeung diropéa. Sedengkeun catetan poéan (diary) mah leuwih singget, spontan, jeung ngan nyatetkeun hal-hal nu dianggap penting wungkul.',
+                explanation: 'Intina, carita pangalaman leuwih formal jeung terstruktur, sedengkeun diary leuwih pribadi jeung ringkes.'
+            },
+            {
+                type: 'essay',
+                question: 'Sebutkeun 3 (tilu) jenis dongéng jeung contona masing-masing!',
+                answer: '1. Fabél (palaku sasatoan), contona: Sakadang Peucang jeung Buaya. 2. Légénda (asal-usul), contona: Sasakala Gunung Tangkuban Parahu. 3. Parabél (palaku jalma biasa), contona: Dongéng Si Kabayan.',
+                explanation: 'Aya 5 jenis dongéng: Fabél, Parabél, Légénda, Mite, jeung Sagé. Tilu di antarana nyaéta anu disebutkeun di luhur.'
+            },
+            {
+                type: 'essay',
+                question: 'Naon waé unsur-unsur penting anu kudu diperhatikeun dina paguneman?',
+                answer: 'Unsur penting dina paguneman nyaéta Lentong (intonasi), Tatakrama Basa (basa lemes/loma), sarta Rengkuh jeung Pasemon (sikep awak jeung raut beungeut).',
+                explanation: 'Unsur-unsur ieu penting pisan pikeun ngajaga kasopanan jeung silihajénan dina waktu ngobrol.'
+            },
+            {
+                type: 'essay',
+                question: 'Jéntrékeun bédana wangun pupujian jeung wangun sajak!',
+                answer: 'Pupujian mah wanguna kaiket ku aturan: biasana 4 baris sabait, 8 engang sabaris, jeung purwakantina sarua (a-a-a-a). Ari sajak mah wangunna bébas, teu kaiket ku aturan-aturan éta.',
+                explanation: 'Ku sabab wangunna bébas, sajak sering disebut puisi modéren, sedengkeun pupujian kaasup puisi buhun (lama) anu kaiket aturan.'
+            },
+             {
+                type: 'essay',
+                question: 'Tuliskeun kalimah "Abdi diajar Basa Sunda" ngagunakeun Aksara Sunda!',
+                answer: 'ᮃᮘ᮪ᮓᮤ ᮓᮤᮃᮏᮁ ᮘᮞ ᮞᮥᮔ᮪ᮓ',
+                explanation: 'Panulisannana: ᮃ (Aksara Swara A) + ᮘ᮪ (ba + pamaéh) + ᮓᮤ (da + panghulu). Spasi. ᮓᮤ (da + panghulu) + ᮃ (Aksara Swara A) + ᮏᮁ (ja + panglayar). Spasi. ᮘ (ba) + ᮞ (sa). Spasi. ᮞᮥ (sa + panyuku) + ᮔ᮪ (na + pamaéh) + ᮓ (da).'
+            }
+        ];
+
+        // --- SCRIPT UTAMA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentArea = document.getElementById('content-area');
+            const navLinks = document.querySelectorAll('#nav-links a');
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const searchBar = document.getElementById('search-bar');
+            const searchResultsContainer = document.getElementById('search-results');
+
+            // Fungsi untuk merender konten
+            function renderContent(hash) {
+                // Sembunyikan sidebar di mobile setelah klik
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+                
+                // Hapus kelas aktif dari semua link
+                navLinks.forEach(link => link.classList.remove('bg-blue-500', 'text-white', 'font-semibold'));
+                
+                // Tambah kelas aktif ke link yang diklik
+                const activeLink = document.querySelector(`a[href="${hash}"]`);
+                if(activeLink) {
+                   activeLink.classList.add('bg-blue-500', 'text-white', 'font-semibold');
+                }
+
+                // Scroll ke atas
+                contentArea.parentElement.scrollTop = 0;
+
+                const pageKey = hash.substring(1); // hapus '#'
+                if (pageKey === 'kuis') {
+                    renderQuiz();
+                } else {
+                    const data = materiData[pageKey] || materiData.home;
+                    contentArea.innerHTML = `
+                        <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                            <h1 class="text-3xl md:text-4xl font-bold mb-6">${data.title}</h1>
+                            <div>${data.content}</div>
+                        </div>
+                    `;
+                }
+                 searchResultsContainer.classList.add('hidden');
+                 searchResultsContainer.innerHTML = '';
+                 searchBar.value = '';
+            }
+
+            // Fungsi untuk merender kuis
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let questions = [];
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            function renderQuiz() {
+                if (currentQuestionIndex === 0) { // Hanya shuffle di awal kuis
+                    questions = [...quizData];
+                    shuffleArray(questions);
+                }
+                
+                contentArea.innerHTML = `<div id="quiz-container" class="bg-white p-6 md:p-8 rounded-xl shadow-lg"></div>`;
+                
+                if (currentQuestionIndex < questions.length) {
+                    displayQuestion(questions[currentQuestionIndex]);
+                } else {
+                    displayFinalScore();
+                }
+            }
+            
+            function displayQuestion(q) {
+                const quizContainer = document.getElementById('quiz-container');
+                let optionsHTML = '';
+                if (q.type === 'mc') {
+                    const shuffledOptions = [...q.options];
+                    shuffleArray(shuffledOptions);
+                    optionsHTML = shuffledOptions.map(option => `
+                        <div class="quiz-option border-2 border-gray-300 p-4 rounded-lg cursor-pointer hover:bg-gray-100 mb-3" data-answer="${option}">
+                            ${option}
+                        </div>
+                    `).join('');
+                }
+                
+                const questionHTML = `
+                    <p class="text-gray-600 mb-2">Soal ${currentQuestionIndex + 1} ti ${questions.length}</p>
+                    <h2 class="text-2xl font-semibold mb-6">${q.question}</h2>
+                    ${q.type === 'mc' ? `<div id="options-list">${optionsHTML}</div>` : 
+                    `<div class="mt-4">
+                        <textarea id="essay-answer" class="w-full p-2 border border-gray-300 rounded-lg" rows="4" placeholder="Tulis jawaban hidep di dieu..."></textarea>
+                        <button id="submit-essay" class="mt-4 bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600">Kirim Jawaban</button>
+                     </div>`
+                    }
+                    <div id="feedback-area" class="mt-6"></div>
+                `;
+                quizContainer.innerHTML = questionHTML;
+
+                if (q.type === 'mc') {
+                    document.querySelectorAll('.quiz-option').forEach(option => {
+                        option.addEventListener('click', (e) => handleMCAnswer(e, q));
+                    });
+                } else {
+                    document.getElementById('submit-essay').addEventListener('click', () => handleEssayAnswer(q));
+                }
+            }
+
+            function handleMCAnswer(e, q) {
+                const selectedOption = e.currentTarget;
+                const selectedAnswer = selectedOption.dataset.answer;
+
+                // Disable all options
+                 document.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.style.pointerEvents = 'none'; 
+                });
+                
+                let isCorrect = selectedAnswer === q.answer;
+                
+                if(isCorrect) {
+                    score++;
+                    selectedOption.classList.add('correct-answer');
+                } else {
+                    selectedOption.classList.add('wrong-answer');
+                    // Highlight correct answer
+                    document.querySelectorAll('.quiz-option').forEach(opt => {
+                        if (opt.dataset.answer === q.answer) {
+                            opt.classList.add('correct-answer');
+                        }
+                    });
+                }
+                
+                showExplanation(q.explanation, isCorrect);
+            }
+
+            function handleEssayAnswer(q) {
+                const userAnswer = document.getElementById('essay-answer').value;
+                document.getElementById('submit-essay').disabled = true;
+                showExplanation(q.explanation, null, userAnswer, q.answer);
+            }
+
+            function showExplanation(explanation, isCorrect, userAnswer = null, correctAnswer = null) {
+                const feedbackArea = document.getElementById('feedback-area');
+                let feedbackHTML = '';
+                
+                if (isCorrect === true) {
+                    feedbackHTML += `<p class="font-bold text-lg text-green-600">Leres Pisan!</p>`;
+                } else if (isCorrect === false) {
+                    feedbackHTML += `<p class="font-bold text-lg text-red-600">Waleran anjeun lepat.</p>`;
+                } else { // Essay
+                     feedbackHTML += `
+                        <div class="mb-4">
+                            <p class="font-bold">Jawaban Anjeun:</p>
+                            <p class="italic p-2 bg-gray-100 rounded">${userAnswer || "(Teu dieusian)"}</p>
+                        </div>
+                         <div class="mb-4">
+                            <p class="font-bold">Conto Jawaban Bener:</p>
+                            <p class="italic p-2 bg-green-100 rounded">${correctAnswer}</p>
+                        </div>
+                     `;
+                }
+
+                feedbackHTML += `
+                    <div class="explanation">
+                        <h3 class="font-bold mb-2">Pembahasan:</h3>
+                        <p>${explanation}</p>
+                    </div>
+                    <button id="next-question" class="mt-6 bg-green-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-600">Soal Salajengna <i class="fas fa-arrow-right ml-2"></i></button>
+                `;
+                feedbackArea.innerHTML = feedbackHTML;
+
+                document.getElementById('next-question').addEventListener('click', () => {
+                    currentQuestionIndex++;
+                    renderQuiz();
+                });
+            }
+
+            function displayFinalScore() {
+                const quizContainer = document.getElementById('quiz-container');
+                const percentage = Math.round((score / questions.length) * 100);
+                let message = '';
+                if (percentage >= 80) {
+                    message = 'Saé Pisan! Pamahaman hidep tos mantep!';
+                } else if (percentage >= 60) {
+                    message = 'Hébat! Teraskeun diajar supados langkung paham.';
+                } else {
+                    message = 'Tong nyerah! Cobi deui diajar materina teras kerjakeun deui kuisna.';
+                }
+
+                quizContainer.innerHTML = `
+                    <h2 class="text-3xl font-bold text-center mb-4">Kuis Rengsé!</h2>
+                    <p class="text-xl text-center mb-6">Skor anjeun:</p>
+                    <div class="text-6xl font-bold text-blue-600 text-center mb-4">${percentage}%</div>
+                    <p class="text-lg text-center mb-2">(${score} tina ${questions.length} waleran leres)</p>
+                    <p class="text-lg text-center font-semibold text-gray-700 mt-6 mb-8">${message}</p>
+                    <div class="text-center">
+                        <button id="restart-quiz" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-600">Ulang Deui Kuis</button>
+                    </div>
+                `;
+
+                document.getElementById('restart-quiz').addEventListener('click', () => {
+                    currentQuestionIndex = 0;
+                    score = 0;
+                    renderQuiz();
+                });
+            }
+
+
+            // --- Navigasi & Event Listeners ---
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const hash = new URL(link.href).hash;
+                    // Update URL without navigating
+                    history.pushState(null, null, hash);
+                    renderContent(hash);
+                });
+            });
+
+            // Handle back/forward browser buttons
+            window.addEventListener('popstate', () => {
+                renderContent(window.location.hash || '#home');
+            });
+            
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // Initial load
+            renderContent(window.location.hash || '#home');
+
+            // Search functionality
+            function performSearch() {
+                const query = searchBar.value.toLowerCase().trim();
+                if (query.length < 3) {
+                    searchResultsContainer.classList.add('hidden');
+                    searchResultsContainer.innerHTML = '';
+                    return;
+                }
+                
+                let results = [];
+                for (const key in materiData) {
+                    if (key !== 'home') {
+                        const materi = materiData[key];
+                        if (materi.title.toLowerCase().includes(query) || materi.content.toLowerCase().includes(query)) {
+                            results.push({
+                                key: key,
+                                title: materi.title
+                            });
+                        }
+                    }
+                }
+                
+                if (results.length > 0) {
+                    searchResultsContainer.innerHTML = `
+                        <p class="font-bold mb-2">Hasil Pilarian:</p>
+                        <ul>
+                            ${results.map(r => `<li><a href="#${r.key}" class="search-result-item block p-2 hover:bg-gray-100 rounded">${r.title}</a></li>`).join('')}
+                        </ul>`;
+                    searchResultsContainer.classList.remove('hidden');
+                    document.querySelectorAll('.search-result-item').forEach(item => {
+                        item.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const hash = new URL(item.href).hash;
+                            history.pushState(null, null, hash);
+                            renderContent(hash);
+                        });
+                    });
+
+                } else {
+                    searchResultsContainer.innerHTML = `<p>Matéri teu kapendak.</p>`;
+                    searchResultsContainer.classList.remove('hidden');
+                }
+            }
+
+            searchBar.addEventListener('keyup', performSearch);
+        });
+
+    </script>
+</body>
+</html>
